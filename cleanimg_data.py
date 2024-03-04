@@ -48,36 +48,63 @@ df["Time"] = pd.to_datetime(df["Time"])
 
 
 
-## average price of an item
-mean_price = df["Amount"].mean()
-print(f"The mean item price is {round(mean_price, 2)}")
+# ## average price of an item
+# mean_price = df["Amount"].mean()
+# print(f"The mean item price is {round(mean_price, 2)}")
 
-## average basket price 
-my_ave_bkt = (sum(df["Amount"] * df["Items"])) / df.shape[0]
+# ## average basket price 
+# my_ave_bkt = (sum(df["Amount"] * df["Items"])) / df.shape[0]
 
-print(f"The average basket price is {round(my_ave_bkt, 2)}")
+# print(f"The average basket price is {round(my_ave_bkt, 2)}")
 
-## max and min spend in one transaction
+# ## max and min spend in one transaction
 
-df = df.assign(Total = df["Amount"] * df["Items"])
+# df = df.assign(Total = df["Amount"] * df["Items"])
 
-# print(df2)
+# # print(df2)
 
-my_max = df["Total"].max()
-my_min = df["Total"].min()
- 
-print(f"The max spend in one transaction is {my_max}")
+# my_max = df["Total"].max()
+# my_min = df["Total"].min()
 
-print(f"The min spend in one transaction is {my_min}")
+# print(f"The max spend in one transaction is {my_max}")
 
-## the most common spend amount
+# print(f"The min spend in one transaction is {my_min}")
 
-common_spend = df["Total"].mode()
+# ## the most common spend amount
 
-print(f"The most common spend amount is {common_spend} ")
+# common_spend = df["Total"].mode()
 
-## the most common payment type
+# print(f"The most common spend amount is {common_spend} ")
 
-common_payment = df["Currency"].mode()
-print(f"The most common payment type is {common_payment} ")
+# ## the most common payment type
 
+# common_payment = df["Currency"].mode()
+# print(f"The most common payment type is {common_payment} ")
+
+#John's answers
+
+print("Johns answers")
+
+sum_amount = df["Amount"].sum()
+sum_items = df["Items"].sum()
+
+average_item_price = sum_amount / sum_items
+
+print(f"average is {average_item_price}")
+
+mean_basket = df["Amount"].mean()
+
+print(f"mean basket is {mean_basket}")
+
+
+print("Max spend")
+print(df["Amount"].max())
+
+print("Min spend")
+print(df["Amount"].min())
+
+print("Most common spend")
+print(df["Amount"].mode())
+
+print("most common payment type")
+print(df["Currency"].mode()[0])
