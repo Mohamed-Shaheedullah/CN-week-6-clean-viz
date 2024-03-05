@@ -12,7 +12,6 @@ df = df.set_index("Transaction ID")
 df = df.drop(columns=["Till ID"])
 
 
-
 df = df.drop([16,17,18])
 
 
