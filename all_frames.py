@@ -1,5 +1,6 @@
 import pandas as pd
 from ydata_profiling import ProfileReport
+import matplotlib.pyplot as plt
 import openpyxl
 import numpy as np
 
@@ -21,14 +22,20 @@ df7['Day'] = 'Sunday'
 
 df_all = pd.concat([df1,df2,df3,df4,df5, df6,df7], ignore_index=True)
 
+# profile = ProfileReport(df_all, title="Megabytes Profile")
 
+# profile.to_file('megabytes_report_before.html')
 
 df_all = df_all.dropna(how="any")
 df_all = df_all.drop(columns=["Unnamed: 0"])
 
-print(df_all)
+# profile = ProfileReport(df_all, title="Megabytes Profile")
 
-df_all.to_excel("all.xlsx")
+# profile.to_file('megabytes_report_after.html')
+
+# print(df_all)
+
+# df_all.to_excel("all.xlsx")
 
 # print(df_all.info())
 
@@ -38,5 +45,4 @@ df_all.to_excel("all.xlsx")
 
 # print(df_all.groupby("Payment Method").sum("Cost"))
 
-total_payments = df_all.groupby('Payment Method')['Cost'].sum()
-print(total_payments)
+
