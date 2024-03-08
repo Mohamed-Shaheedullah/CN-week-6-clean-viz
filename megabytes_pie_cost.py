@@ -13,6 +13,10 @@ print(df_all)
 total_payments_df = df_all.groupby('Payment Method')['Cost'].sum().reset_index()
 print(total_payments_df)
 
-plt.pie(total_payments_df["Cost"], labels=total_payments_df["Payment Method"], autopct="%.1f%%", explode =[0,0,0,0,0.1])
+plt.pie(total_payments_df["Cost"],
+        labels=total_payments_df["Payment Method"],
+        autopct="%.1f%%", explode =[0,0,0,0,0.1],
+        colors=["orange","green", "lightskyblue", "purple", "red"   ])
 plt.title("Percent of Income from each Payment Method")
+
 plt.show()
