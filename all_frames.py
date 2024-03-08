@@ -26,14 +26,25 @@ df_all = pd.concat([df1,df2,df3,df4,df5, df6,df7], ignore_index=True)
 
 # profile.to_file('megabytes_report_before.html')
 
+
+## check for duplicates
+duplicate_values = df_all.duplicated()
+print(duplicate_values.value_counts())
+## no dupes
+
+
 df_all = df_all.dropna(how="any")
 df_all = df_all.drop(columns=["Unnamed: 0"])
+
+
+# df_all.drop(df_all.columns[0], axis=1)
+
 
 # profile = ProfileReport(df_all, title="Megabytes Profile")
 
 # profile.to_file('megabytes_report_after.html')
 
-# print(df_all)
+print(df_all)
 
 # df_all.to_excel("all.xlsx")
 

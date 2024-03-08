@@ -17,11 +17,14 @@ df1 = df1.dropna(how="any")
 
 df1 = df1.drop(columns=["Unnamed: 0"])
 
+# total_payments = df1.groupby('Payment Method')['Cost'].sum()
+# print(total_payments)
 
-print(df1.info())
 
-print(df1.describe())
+# print(df1.info())
+
+# print(df1.describe())
 
 print(df1["Payment Method"].value_counts())
 
-print(df1.groupby("Payment Method").sum("Cost"))
+# print(df1.groupby("Payment Method").sum("Cost"))
